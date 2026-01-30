@@ -25,7 +25,7 @@ resource "aws_route_table" "route-table-cre" {
 }
 resource "aws_route_table_association" "rtblassn" {
     count = local.value
-    subnet_id =aws_subnet.subnets-cre[1].id
+    subnet_id =aws_subnet.subnets-cre[count.index].id
     route_table_id =  aws_route_table.route-table-cre.id
 }
 resource "aws_internet_gateway" "intgway" {
