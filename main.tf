@@ -56,6 +56,7 @@ resource "aws_instance" "myec2" {
     instance_type = "t3.micro"
     key_name = aws_key_pair.name.key_name
     associate_public_ip_address = true
+    subnet_id = aws_subnet.subnets-cre[0].id
     vpc_security_group_ids = [aws_security_group.sg-cre.id]
     tags={
         Name="my-terraformec2"
